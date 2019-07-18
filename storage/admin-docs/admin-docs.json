@@ -1,0 +1,111 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Sheet Api",
+    "license": {
+      "name": "api \u63a5\u53e3\u6587\u6863\u5730\u5740",
+      "url": "\/api\/documentation"
+    },
+    "description": "Sheet Api \u63a5\u53e3\u6587\u6863 [`admin`](\/admin\/documentation). ",
+    "contact": {
+      "email": "soliang@dingtalk.com"
+    }
+  },
+  "paths": {
+    "\/api\/admin\/upload\/upload\/create": {
+      "post": {
+        "summary": "\u4e0a\u4f20\u6587\u4ef6",
+        "tags": [
+          "\u6587\u4ef6\u4e0a\u4f20"
+        ],
+        "operationId": "uploadCreate",
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "\u6587\u4ef6",
+            "type": "file",
+            "required": true
+          },
+          {
+            "name": "type",
+            "in": "formData",
+            "description": "\u6587\u4ef6\u7c7b\u578b  1\uff1a\u9ed8\u8ba4",
+            "default": 1,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "path_text:\u56fe\u7247\u8bbf\u95eeurl\n\n{\n    \"code\":18000,\n    \"msg\":\"\u4e0a\u4f20\u6210\u529f\",\n    \"data\":{\n        \"user_id\":0,\n        \"root_type\":1,\n        \"type\":1,\n        \"storage\":\"local\",\n        \"filename\":\"tmp.jpeg\",\n        \"path\":\"\/uploads\/20190413\/5cb1c2309ff98eNXr4Q.jpeg\",\n        \"ext_info\":\"\",\n        \"status\":1,\n        \"updated_at\":\"2019-04-13 19:04:16\",\n        \"created_at\":\"2019-04-13 19:04:16\",\n        \"id\":13,\n        \"root_type_text\":\"\u7ba1\u7406\u540e\u53f0\",\n        \"type_text\":\"\u9ed8\u8ba4\",\n        \"storage_text\":\"\u672c\u5730\",\n        \"path_text\":\"http:\/\/localsheet\/uploads\/20190413\/5cb1c2309ff98eNXr4Q.jpeg\",\n        \"status_text\":\"\u6b63\u5e38\"\n    }\n}\n"
+          }
+        }
+      }
+    },
+    "\/api\/admin\/upload\/upload\/list": {
+      "get": {
+        "summary": "\u83b7\u53d6\u6587\u4ef6\u5217\u8868",
+        "tags": [
+          "\u6587\u4ef6\u4e0a\u4f20"
+        ],
+        "operationId": "uploadList",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "\u9875\u7801",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "\u5206\u9875\u5927\u5c0f \u4ec5\u652f\u6301 [5,10,20,30,40]",
+            "default": 0,
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{\n    \"code\":18000,\n    \"msg\":\"\u83b7\u53d6\u6210\u529f\",\n    \"data\":{\n        \"current_page\":1,\n        \"data\":[\n            {\n                \"id\":1,\n                \"user_id\":0,\n                \"root_type\":1,\n                \"source_id\":0,\n                \"type\":1,\n                \"storage\":\"local\",\n                \"filename\":\"tmp.jpeg\",\n                \"path\":\"uploads\/201904135cb1a6fa1bda39RZKWg.jpeg\",\n                \"ext_info\":\"\",\n                \"status\":1,\n                \"created_at\":\"2019-04-13 17:08:10\",\n                \"updated_at\":\"2019-04-13 17:08:10\",\n                \"root_type_text\":\"\u7ba1\u7406\u540e\u53f0\",\n                \"type_text\":\"\u9ed8\u8ba4\",\n                \"storage_text\":\"\u672c\u5730\",\n                \"path_text\":\"http:\/\/localsheet\/uploads\/201904135cb1a6fa1bda39RZKWg.jpeg\",\n                \"status_text\":\"\u6b63\u5e38\"\n            }\n        ],\n        \"first_page_url\":\"http:\/\/localhost\/admin\/upload\/list?page=1\",\n        \"from\":1,\n        \"last_page\":3,\n        \"last_page_url\":\"http:\/\/localhost\/admin\/upload\/list?page=3\",\n        \"next_page_url\":\"http:\/\/localhost\/admin\/upload\/list?page=2\",\n        \"path\":\"http:\/\/localhost\/admin\/upload\/list\",\n        \"per_page\":5,\n        \"prev_page_url\":null,\n        \"to\":5,\n        \"total\":13\n    }\n}\n"
+          }
+        }
+      }
+    },
+    "\/api\/admin\/upload\/upload\/delete": {
+      "get": {
+        "summary": "\u5220\u9664\u6587\u4ef6",
+        "tags": [
+          "\u6587\u4ef6\u4e0a\u4f20"
+        ],
+        "operationId": "uploadDelete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "\u6587\u4ef6id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{\n    \"code\":18000,\n    \"msg\":\"\u5220\u9664\u6210\u529f\",\n    \"data\":[\n    ]\n}\n\n{\n    \"code\":13000,\n    \"msg\":\"\u6587\u4ef6\u4e0d\u5b58\u5728\",\n    \"data\":[\n    ]\n}\n"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "\u6587\u4ef6\u4e0a\u4f20",
+      "description": "\u6587\u4ef6\u4e0a\u4f20",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    }
+  ]
+}

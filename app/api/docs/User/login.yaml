@@ -1,0 +1,94 @@
+swagger: '2.0'
+info:
+  version:
+  title:
+  license:
+    name:
+paths:
+  /api/api/user/login/register:
+    post:
+      summary: 注册
+      tags:
+        - 用户注册登录
+      operationId: loginRegister
+      parameters:
+        - name: email
+          in: formData
+          description: 登录邮箱
+          type: string
+          required: true
+        - name: username
+          in: formData
+          description: 唯一用户名
+          type: string
+        - name: password
+          in: formData
+          description: 密码
+          type: string
+        - name: confirm_password
+          in: formData
+          description: 确认密码
+          type: string
+          required: true
+      responses:
+        200:
+          description: |
+            token:身份认证token(响应header中也会有返回：Authorization:Bearer xxx。xxx为token)
+
+            {
+                "code":18000,
+                "msg":"注册成功",
+                "data":{
+                    "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXBpXC91c2VyXC9sb2dpblwvcmVnaXN0ZXIiLCJpYXQiOjE1NjI1NzI4MDEsImV4cCI6MTU2MjU3NjQwMSwibmJmIjoxNTYyNTcyODAxLCJqdGkiOiJRNmpaekIyaFRwTHY1NHJRIiwic3ViIjo5LCJwcnYiOiI3Zjg5OWM5NzFlMWVhNGQ1NGUzZTc1MGZmYjMxMjVjNzFmNzFkN2IyIn0.YtOdn6tJMsgDdqESvEUVK23uEzeZLvUAtQJGf500VIQ"
+                }
+            }
+  /api/api/user/login/login:
+    post:
+      summary: 登录
+      tags:
+        - 用户注册登录
+      operationId: loginLogin
+      parameters:
+        - name: account
+          in: formData
+          description: 账号(email)
+          type: string
+          required: true
+        - name: password
+          in: formData
+          description: 密码
+          type: string
+          required: true
+      responses:
+        200:
+          description: |
+            token:身份认证token(响应header中也会有返回：Authorization:Bearer xxx。xxx为token)
+
+            {
+                "code":18000,
+                "msg":"登录成功",
+                "data":{
+                    "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXBpXC91c2VyXC9sb2dpblwvbG9naW4iLCJpYXQiOjE1NjI1NzMxMDIsImV4cCI6MTU2MjU3NjcwMiwibmJmIjoxNTYyNTczMTAyLCJqdGkiOiJCa1dmVE9JRk1XaGV0Rzh1Iiwic3ViIjoxLCJwcnYiOiI3Zjg5OWM5NzFlMWVhNGQ1NGUzZTc1MGZmYjMxMjVjNzFmNzFkN2IyIn0.PdoTt4J9lUnqHb2Ak8CHS2GO7KchrVt9SDgMtRFgchE"
+                }
+            }
+  /api/api/user/login/logout:
+    post:
+      summary: 退出登录
+      tags:
+        - 用户注册登录
+      operationId: loginLogout
+      parameters:
+        - name: token
+          in: formData
+          description: token
+          type: string
+          required: true
+      responses:
+        200:
+          description: |
+            {
+                "code":18000,
+                "msg":"",
+                "data":[
+                ]
+            }

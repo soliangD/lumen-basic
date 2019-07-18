@@ -1,0 +1,29 @@
+swagger: "2.0"
+info:
+  description: "Sheet Api 接口文档 [swagger](http://swagger.io). `api`"
+  version: "1.0.0"
+  title: "Sheet Api"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "soliang@dingtalk.com"
+  license:
+    name: "Admin 接口文档"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+//注：try it out时使用的域名
+host: "localsheet"
+basePath: "/"
+tags:
+  - name: "pet"
+    description: "Everything about your Pets"
+    externalDocs:
+      description: ""
+      url: ""
+  - name: "store"
+    description: "Access to Petstore orders"
+  - name: "user"
+    description: "Operations about user"
+    externalDocs:
+      description: ""
+      url: ""
+paths:
+

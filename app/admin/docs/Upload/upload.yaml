@@ -1,0 +1,138 @@
+swagger: '2.0'
+info:
+  version:
+  title:
+  license:
+    name:
+paths:
+  /api/admin/upload/upload/create:
+    post:
+      summary: 上传文件
+      tags:
+        - 文件上传
+      operationId: uploadCreate
+      parameters:
+        - name: file
+          in: formData
+          description: 文件
+          type: file
+          required: true
+        - name: type
+          in: formData
+          description: 文件类型  1：默认
+          default: 1
+          type: string
+      responses:
+        200:
+          description: |
+            path_text:图片访问url
+
+            {
+                "code":18000,
+                "msg":"上传成功",
+                "data":{
+                    "user_id":0,
+                    "root_type":1,
+                    "type":1,
+                    "storage":"local",
+                    "filename":"tmp.jpeg",
+                    "path":"/uploads/20190413/5cb1c2309ff98eNXr4Q.jpeg",
+                    "ext_info":"",
+                    "status":1,
+                    "updated_at":"2019-04-13 19:04:16",
+                    "created_at":"2019-04-13 19:04:16",
+                    "id":13,
+                    "root_type_text":"管理后台",
+                    "type_text":"默认",
+                    "storage_text":"本地",
+                    "path_text":"http://localsheet/uploads/20190413/5cb1c2309ff98eNXr4Q.jpeg",
+                    "status_text":"正常"
+                }
+            }
+  /api/admin/upload/upload/list:
+    get:
+      summary: 获取文件列表
+      tags:
+        - 文件上传
+      operationId: uploadList
+      parameters:
+        - name: page
+          in: query
+          description: 页码
+          type: string
+          required: false
+        - name: page_size
+          in: query
+          description: 分页大小 仅支持 [5,10,20,30,40]
+          default: 0
+          type: string
+          required: false
+      responses:
+        200:
+          description: |
+            {
+                "code":18000,
+                "msg":"获取成功",
+                "data":{
+                    "current_page":1,
+                    "data":[
+                        {
+                            "id":1,
+                            "user_id":0,
+                            "root_type":1,
+                            "source_id":0,
+                            "type":1,
+                            "storage":"local",
+                            "filename":"tmp.jpeg",
+                            "path":"uploads/201904135cb1a6fa1bda39RZKWg.jpeg",
+                            "ext_info":"",
+                            "status":1,
+                            "created_at":"2019-04-13 17:08:10",
+                            "updated_at":"2019-04-13 17:08:10",
+                            "root_type_text":"管理后台",
+                            "type_text":"默认",
+                            "storage_text":"本地",
+                            "path_text":"http://localsheet/uploads/201904135cb1a6fa1bda39RZKWg.jpeg",
+                            "status_text":"正常"
+                        }
+                    ],
+                    "first_page_url":"http://localhost/admin/upload/list?page=1",
+                    "from":1,
+                    "last_page":3,
+                    "last_page_url":"http://localhost/admin/upload/list?page=3",
+                    "next_page_url":"http://localhost/admin/upload/list?page=2",
+                    "path":"http://localhost/admin/upload/list",
+                    "per_page":5,
+                    "prev_page_url":null,
+                    "to":5,
+                    "total":13
+                }
+            }
+  /api/admin/upload/upload/delete:
+    get:
+      summary: 删除文件
+      tags:
+        - 文件上传
+      operationId: uploadDelete
+      parameters:
+        - name: id
+          in: formData
+          description: 文件id
+          type: string
+          required: true
+      responses:
+        200:
+          description: |
+            {
+                "code":18000,
+                "msg":"删除成功",
+                "data":[
+                ]
+            }
+
+            {
+                "code":13000,
+                "msg":"文件不存在",
+                "data":[
+                ]
+            }

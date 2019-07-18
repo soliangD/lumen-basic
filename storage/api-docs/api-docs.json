@@ -1,0 +1,149 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Sheet Api",
+    "license": {
+      "name": "admin \u63a5\u53e3\u6587\u6863\u5730\u5740",
+      "url": "\/admin\/documentation"
+    },
+    "description": "Sheet Api \u63a5\u53e3\u6587\u6863 [`api`](\/api\/documentation). ",
+    "contact": {
+      "email": "soliang@dingtalk.com"
+    }
+  },
+  "paths": {
+    "\/api\/api\/user\/login\/register": {
+      "post": {
+        "summary": "\u6ce8\u518c",
+        "tags": [
+          "\u7528\u6237\u6ce8\u518c\u767b\u5f55"
+        ],
+        "operationId": "loginRegister",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "\u767b\u5f55\u90ae\u7bb1",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "username",
+            "in": "formData",
+            "description": "\u552f\u4e00\u7528\u6237\u540d",
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "\u5bc6\u7801",
+            "type": "string"
+          },
+          {
+            "name": "confirm_password",
+            "in": "formData",
+            "description": "\u786e\u8ba4\u5bc6\u7801",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "token:\u8eab\u4efd\u8ba4\u8bc1token(\u54cd\u5e94header\u4e2d\u4e5f\u4f1a\u6709\u8fd4\u56de\uff1aAuthorization:Bearer xxx\u3002xxx\u4e3atoken)\n\n{\n    \"code\":18000,\n    \"msg\":\"\u6ce8\u518c\u6210\u529f\",\n    \"data\":{\n        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXBpXC91c2VyXC9sb2dpblwvcmVnaXN0ZXIiLCJpYXQiOjE1NjI1NzI4MDEsImV4cCI6MTU2MjU3NjQwMSwibmJmIjoxNTYyNTcyODAxLCJqdGkiOiJRNmpaekIyaFRwTHY1NHJRIiwic3ViIjo5LCJwcnYiOiI3Zjg5OWM5NzFlMWVhNGQ1NGUzZTc1MGZmYjMxMjVjNzFmNzFkN2IyIn0.YtOdn6tJMsgDdqESvEUVK23uEzeZLvUAtQJGf500VIQ\"\n    }\n}\n"
+          }
+        }
+      }
+    },
+    "\/api\/api\/user\/login\/login": {
+      "post": {
+        "summary": "\u767b\u5f55",
+        "tags": [
+          "\u7528\u6237\u6ce8\u518c\u767b\u5f55"
+        ],
+        "operationId": "loginLogin",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "formData",
+            "description": "\u8d26\u53f7(email)",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "\u5bc6\u7801",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "token:\u8eab\u4efd\u8ba4\u8bc1token(\u54cd\u5e94header\u4e2d\u4e5f\u4f1a\u6709\u8fd4\u56de\uff1aAuthorization:Bearer xxx\u3002xxx\u4e3atoken)\n\n{\n    \"code\":18000,\n    \"msg\":\"\u767b\u5f55\u6210\u529f\",\n    \"data\":{\n        \"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXBpXC91c2VyXC9sb2dpblwvbG9naW4iLCJpYXQiOjE1NjI1NzMxMDIsImV4cCI6MTU2MjU3NjcwMiwibmJmIjoxNTYyNTczMTAyLCJqdGkiOiJCa1dmVE9JRk1XaGV0Rzh1Iiwic3ViIjoxLCJwcnYiOiI3Zjg5OWM5NzFlMWVhNGQ1NGUzZTc1MGZmYjMxMjVjNzFmNzFkN2IyIn0.PdoTt4J9lUnqHb2Ak8CHS2GO7KchrVt9SDgMtRFgchE\"\n    }\n}\n"
+          }
+        }
+      }
+    },
+    "\/api\/api\/user\/login\/logout": {
+      "post": {
+        "summary": "\u9000\u51fa\u767b\u5f55",
+        "tags": [
+          "\u7528\u6237\u6ce8\u518c\u767b\u5f55"
+        ],
+        "operationId": "loginLogout",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "formData",
+            "description": "token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{\n    \"code\":18000,\n    \"msg\":\"\",\n    \"data\":[\n    ]\n}\n"
+          }
+        }
+      }
+    },
+    "\/api\/api\/user\/user\/info": {
+      "get": {
+        "summary": "\u7528\u6237\u4fe1\u606f",
+        "tags": [
+          "\u7528\u6237"
+        ],
+        "operationId": "userInfo",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "description": "token",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "username\uff1a\u7528\u6237\u540d\nemail\uff1aemail\ncreated_at\uff1a\u6ce8\u518c\u65f6\u95f4\nupdated_at\uff1a\u6700\u540e\u4fee\u6539\u65f6\u95f4\nstatus\uff1a\u72b6\u6001 1\uff1a\u6b63\u5e38 -2\uff1a\u5220\u9664 -1\uff1a\u7981\u7528 2\uff1a\u672a\u6fc0\u6d3b(\u5f85\u9a8c\u8bc1)\n\n```json\n{\n  \"code\":18000,\n  \"msg\":\"\",\n  \"data\":{\n    \"username\":\"soliang\",\n    \"email\":\"297210725@qq.com\",\n    \"status\":1,\n    \"created_at\":\"2019-06-22 14:12:22\",\n    \"updated_at\":\"2019-06-22 14:12:22\"\n  }\n}\n```\n"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "\u7528\u6237\u6ce8\u518c\u767b\u5f55",
+      "description": "\u7528\u6237\u6ce8\u518c\u767b\u5f55\u76f8\u5173\u63a5\u53e3",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    },
+    {
+      "name": "\u7528\u6237",
+      "description": "\u7528\u6237\u76f8\u5173\u63a5\u53e3"
+    }
+  ]
+}
