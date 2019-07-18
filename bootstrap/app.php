@@ -31,8 +31,6 @@ $app->withEloquent();
 |--------------------------------------------------------------------------
 */
 $app->configure('config');
-// avatar
-$app->configure('laravolt.avatar');
 // auth
 $app->configure('auth');
 // jwt
@@ -102,8 +100,6 @@ $app->register(\Common\Providers\AppServiceProvider::class);
 $app->register(\Common\Providers\EventServiceProvider::class);
 //ide helper
 $app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-// avatar
-$app->register(Laravolt\Avatar\LumenServiceProvider::class);
 // jwt 由于 jwt-auth 存在问题，使用重写后的 Provider
 //$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(\Common\Providers\Rewrite\LumenServiceProvider::class);
