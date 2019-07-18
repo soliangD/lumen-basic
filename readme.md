@@ -1,23 +1,21 @@
-# Lumen PHP Framework
+# Lumen Basic
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+这是一个基于 [Lumen](https://github.com/laravel/lumen) 的模板仓库
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+This is an [Lumen](https://github.com/laravel/lumen) based template repository
 
-## Official Documentation
+### 集成
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+- redis
+- mail
+- [laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
+- [laravel/helpers](https://github.com/laravel/helpers)：laravel5.8移除了部分helper函数，提供了helpers包
+- jwt-auth：对[jwt-auth 1.0.0-rc.4](https://github.com/tymondesigns/jwt-auth/tree/1.0.0-rc.4)进行了集成实现并优化
+- lumen-yaml-swagger：使用了[yaml-swagger](https://github.com/soliangD/lumen-yaml-swagger)来进行文档编写，支持yaml格式
 
-## Security Vulnerabilities
+### 其他
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-
+- 目录结构优化：对目录结构进行优化，进行了 `api` 和 `admin` 的分离
+- 基础封装：封装了工具函数、BaseController、Services、Validate、Redis基类、Response、StaticModel
+- 测试用例优化：对部分测试方法进行封装优化
+- 其他：cors处理
