@@ -15,7 +15,6 @@
 - predis/predis：redis
 新增(other)
 - league/flysystem：filesystem需要
-- laravolt/avatar：生成文字头像
 - tymon/jwt-auth(1.0.0-rc.4)：jwt auth
 
 ### require-dev
