@@ -1,6 +1,6 @@
 {
-  "name": "laravel/lumen",
-  "description": "The Laravel Lumen Framework.",
+  "name": "soocoo/lumen-basic",
+  "description": "The Laravel Lumen Framework Basic.",
   "keywords": [
     "framework",
     "laravel",
